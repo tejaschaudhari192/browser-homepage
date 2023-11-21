@@ -6,18 +6,18 @@ function updateClock() {
     // const seconds = now.getSeconds().toString().padStart(2, '0');
 
     const timeString = `${hours}:${minutes}`;
-    const daystring = `${day}`;
+    const dayString = `${day}`;
     document.getElementById('clock').textContent = timeString;
 
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dayOfWeek = daysOfWeek[now.getDay()];
-    document.getElementById('day').textContent = dayOfWeek;
+    const weeks = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const weekDay = weeks[now.getDay()];
+    document.getElementById('day').textContent = weekDay;
 
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const month = months[now.getMonth()];
-    const dayOfMonth = now.getDate();
+    const monthDayNum = now.getDate();
     const year = now.getFullYear();
-    const dateString = `${dayOfMonth} ${month} ${year}`;
+    const dateString = `${monthDayNum} ${month} ${year}`;
     document.getElementById('date').textContent = dateString;
 
     getWeather();
@@ -35,7 +35,9 @@ function getWeather() {
 
             const weatherIcon = getWeatherIcon(data.weather[0].icon);
 
-            const weatherString = `${weatherIcon} ${weatherTemp}°C`;
+            const dc = "°C";
+
+            const weatherString = `${weatherIcon} ${weatherTemp}${dc}`;
             document.getElementById('weather').textContent = weatherString;
         })
         .catch(error => {
