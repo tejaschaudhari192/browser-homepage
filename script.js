@@ -5,7 +5,7 @@ function updateClock() {
     // const seconds = now.getSeconds().toString().padStart(2, '0');
 
     let hours = ((now.getHours())% 12 || 12).toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const ampm = hours >= 12 ? 'AM' : 'PM';
     // const timeString = `${hours}:${minutes}`;
     const timeString = `${hours}:${minutes} ${ampm}`;
     const dayString = `${day}`;
